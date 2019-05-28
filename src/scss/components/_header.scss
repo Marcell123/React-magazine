@@ -1,0 +1,247 @@
+header {
+  background: $white;
+  padding: 30px 32px;
+  box-shadow: 0px 8px 18px rgba(0, 0, 0, 0.033);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  animation: slideUp 300ms linear;
+  .container {
+    display: flex;
+    display: -webkit-flex;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+}
+
+// Logo
+.brand .logo {
+  width: 123px;
+}
+
+// Search Box
+.search {
+  margin-left: 64px;
+  display: flex;
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+
+  .search-keyword {
+    height: 36px;
+    border: 1px solid $primary-green;
+    padding: 0 16px;
+    border-radius: 2px 0 0 2px;
+    width: 100%;
+    max-width: 330px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .search-button {
+    border-radius: 0 2px 2px 0;
+    background: $primary-green
+      url('https://res.cloudinary.com/sivadass/image/upload/v1494692031/icons/search.png')
+      center no-repeat;
+    width: 96px;
+  }
+}
+
+
+// Cart
+.cart {
+  display: flex;
+  display: -webkit-flex;
+  margin-left: 64px;
+  position: relative;
+  z-index: 99;
+}
+
+.cart-info table {
+  font-size: 14px;
+  color: $primary-green;
+  text-align: right;
+  tr {
+    padding: 0;
+    margin: 0;
+  }
+  td {
+    padding: 0 4px;
+    line-height: 16px;
+  }
+}
+.cart-icon {
+  margin-left: 16px;
+  z-index: 99;
+  position: relative;
+}
+
+.cart-list {
+  display: none;
+  background: $white;
+  border: 1px solid $gray-eighty;
+  &:before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 8px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $gray-eighty;
+  }
+}
+.cart-list.active {
+  display: block;
+  z-index: 99;
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 360px;
+  height: 388px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.item {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  padding: 8px;
+  .item-image {
+    width: 48px;
+    height: 48px;
+  }
+  .item-info {
+    margin-left: 16px;
+    flex-grow: 1;
+    .item-name {
+      color: $gray-light;
+      font-size: 14px;
+    }
+    .item-price {
+      color: $gray-light;
+      font-weight: 700;
+      &:before {
+        content: "$ ";
+      }
+    }
+  }
+  .item-total {
+    margin-left: 16px;
+    .quantity {
+      color: $gray-light;
+      font-size: 14px;
+      text-align: right;
+    }
+    .amount {
+      color: $gray-dark;
+      font-weight: 700;
+      text-align: right;
+      &:before {
+        content: "$ ";
+      }
+    }
+  }
+  &:hover {
+    background: $green-light-bg;
+  }
+  .item-remove {
+    margin-left: 24px;
+    height: 24px;
+    line-height: 24px;
+    width: 24px;
+    font-size: 22px;
+    color: $gray-eighty;
+    text-align: center;
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+.proceed-checkout {
+  background: $white;
+  padding: 16px;
+  button {
+    background: $primary-orange;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    &.disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.empty-cart {
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: 250px;
+    margin: 42px auto 16px auto;
+  }
+}
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+
+
+
+@keyframes dance {
+  from {
+    transform: scale3d(1, 1, 1);
+    opacity: 0;
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.8, 0.66, 0.66) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+}
+
+.dance {
+  animation-name: dance;
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+}
+
+
+
